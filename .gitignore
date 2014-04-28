@@ -1,0 +1,11 @@
+*.log
+tmp
+target
+atlassian-ide-plugin.xml
+.idea/workspace.xml
+.idea/libraries
+.idea/artifacts
+rtdm-ui.iml
+.idea/jsLibraryMappings.xml
+.idea/mongoSettings.xml
+.DS_Store
