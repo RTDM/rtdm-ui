@@ -58,10 +58,18 @@
 
     <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/dashboard.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+
+    <!-- Services -->
+    <script src="scripts/services/Dashboard.bo.js"></script>
+
+    <!-- Filters -->
+    <script src="scripts/filters/CardStatusFilter.js"></script>
+
+    <!-- Controllers -->
+    <script src="scripts/controllers/MainCtrl.js"></script>
+    <script src="scripts/controllers/DashBoardCtrl.js"></script>
+    <!-- endbuild -->
 </body>
 </html>
