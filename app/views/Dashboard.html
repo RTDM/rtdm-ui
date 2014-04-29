@@ -4,7 +4,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">TODO</div>
         <div class="panel-body">
-            <span ng-repeat="card in cards | cardStatus:'TODO'">{{ card.ref }} - {{ card.text }}</span>
+            <span class="label label-success" ng-repeat="card in cards | cardStatus:'TODO'">{{ card.ref }} - {{ card.text }}</span>
         </div>
     </div>
 
@@ -12,7 +12,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">DOING</div>
         <div class="panel-body">
-            <span ng-repeat="card in cards | cardStatus:'DOING'">{{ card.ref }} - {{ card.text }}</span>
+            <span class="label label-success" ng-repeat="card in cards | cardStatus:'DOING'">{{ card.ref }} - {{ card.text }}</span>
         </div>
     </div>
 
@@ -20,7 +20,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">PUSHED</div>
         <div class="panel-body">
-            <span ng-repeat="card in cards | cardStatus:'PUSHED'">{{ card.ref }} - {{ card.text }}</span>
+            <span class="label label-success" class="label" ng-repeat="card in cards | cardStatus:'PUSHED'">{{ card.ref }} - {{ card.text }}</span>
         </div>
     </div>
 
@@ -28,7 +28,7 @@
     <div class="panel panel-warning">
         <div class="panel-heading">BUILT</div>
         <div class="panel-body">
-            <span ng-repeat="card in cards | cardStatus:'BUILT'">{{ card.ref }} - {{ card.text }}</span>
+            <span class="label label-success" ng-repeat="card in cards | cardStatus:'BUILT'">{{ card.ref }} - {{ card.text }}</span>
         </div>
     </div>
 
@@ -36,7 +36,7 @@
     <div class="panel panel-success">
         <div class="panel-heading">DEPLOYED</div>
         <div class="panel-body">
-            <span ng-repeat="card in cards | cardStatus:'DEPLOYED'">{{ card.ref }} - {{ card.text }}</span>
+            <span class="label label-success" ng-repeat="card in cards | cardStatus:'DEPLOYED'">{{ card.ref }} - {{ card.text }}</span>
         </div>
     </div>
 
