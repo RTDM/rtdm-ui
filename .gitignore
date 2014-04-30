@@ -13,3 +13,4 @@ node_modules
 app/bower_components
 .sass-cache
 .tmp
+.idea/misc.xml
