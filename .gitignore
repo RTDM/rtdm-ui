@@ -9,3 +9,7 @@ rtdm-ui.iml
 .idea/jsLibraryMappings.xml
 .idea/mongoSettings.xml
 .DS_Store
+node_modules
+app/bower_components
+.sass-cache
+.tmp
