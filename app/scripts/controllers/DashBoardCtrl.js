@@ -6,6 +6,10 @@ angular.module('rtdm.ui')
         var dashboardKey = $routeParams.id;
 
         // Load all dashboard cards
-        $scope.cards = Dashboard.getCards(dashboardKey);
+        $scope.cards = Dashboard.getCards(dashboardKey, function (cards) {
+            for (var i = 0; i < cards.length; i++) {
+                cards[i].rating = 0;
+            }
+        });
 
     });
