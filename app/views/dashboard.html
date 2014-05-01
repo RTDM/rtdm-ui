@@ -8,12 +8,16 @@
 </div>
 
 <div class="row">
-    <form ng-submit="gotoDashboard(dashboardKey)">
-        <input type="text" placeholder="Type the dashboard Key here" ng-model="dashboardKey">
-        <button type="submit">Go</button>
-    </form>
+    <h3>Activities</h3>
+    <div>
+        <div ng-repeat="activity in activities">
+            <h4>{{activity.event}}</h4>
+            <p>{{activity.timestamp}}</p>
+            <p>{{activity.card.text}}</p>
+        </div>
+    </div>
 </div>
 
 <div class="footer">
-  <p>Made with ♥ from the RTDM team</p>
+  <p>♥ from the RTDM team</p>
 </div>
