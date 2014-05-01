@@ -14,12 +14,8 @@ angular.module('rtdm.ui', [
             .when('/', {
                 templateUrl: 'views/main.html'
             })
-            .when('/dashboard/:id', {
-                templateUrl: 'views/Dashboard.html'
-            })
             .when('/dashboard/:dashboardKey', {
-                templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl'
+                templateUrl: 'views/Dashboard.html'
             })
             .otherwise({
                 redirectTo: '/'
