@@ -52,7 +52,7 @@
                             </ul>
                             <label>{{ 'links.list' | i18n }}</label>
                             <ul>
-                                <li ng-repeat='link in selectedCard.links'><a href="{{ commit.url }}">{{ link.name }}</a></li>
+                                <li ng-repeat='link in selectedCard.links'><a href="{{ link.url }}">{{ link.name }} ({{ link.category }})</a></li>
                             </ul>
                         </form>
                     </div>

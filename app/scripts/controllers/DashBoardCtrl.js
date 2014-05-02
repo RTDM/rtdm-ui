@@ -70,8 +70,6 @@ angular.module('rtdm.ui')
         });
 
         Dashboard.getCards(dashboardKey, function (cards) {
-            _.each(cards, function (card) {
-                $scope.addCard(card);
-            });
+            _.each(cards, $scope.addCard);
         });
     });
