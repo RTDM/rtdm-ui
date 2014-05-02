@@ -68,7 +68,7 @@
                     <div class="panel-body">
 
                         <ul class="list-group">
-                            <li class="list-group-item success" ng-repeat='activity in activities'>
+                            <li class="list-group-item success" ng-repeat="activity in activities | orderBy:'-timestamp'">
                                 #{{ activity.card.ref }} : {{ activity.event | i18n }} @ {{ activity.timestamp | date:dateTimeFormat }}
                             </li>
                         </ul>
