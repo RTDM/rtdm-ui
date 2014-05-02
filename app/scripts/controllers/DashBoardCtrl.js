@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('rtdm.ui')
-    .controller('DashboardCtrl', function ($scope, $routeParams, Dashboard, StompClient) {
+    .controller('DashboardCtrl', function ($scope, $routeParams, Common, Dashboard, StompClient) {
 
         var dashboardKey = $scope.dashboardKey = $routeParams.dashboardKey;
 
@@ -23,13 +23,37 @@ angular.module('rtdm.ui')
             StompClient.unsubscribe(registration);
         });
 
-        // Displayed categories
-        $scope.categories = [ 'TODO', 'DOING', 'PUSHED', 'BUILT', 'DEPLOYED' ];
-
-        // Load dashboard activities
-        $scope.activities = Dashboard.getActivities(dashboardKey);
-
-        // Load all dashboard cards
-        $scope.cards = Dashboard.getCards(dashboardKey);
-
+        angular.extend($scope, {
+            categories: [
+                {
+                    name: 'TODO',
+                    type: 'info'
+                },
+                {
+                    name: 'DOING',
+                    type: 'info'
+                },
+                {
+                    name: 'PUSHED',
+                    type: 'info',
+                    logo: 'http://aglick.com/snIcons/GithubLogo.png'
+                },
+                {
+                    name: 'BUILT',
+                    type: 'warning',
+                    logo: 'http://www.dailyhostnews.com/wp-content/uploads/2013/03/CloudBees_logo_600x450.jpeg'
+                },
+                {
+                    name: 'DEPLOYED',
+                    type: 'success',
+                    logo: 'https://pbs.twimg.com/profile_images/2182907658/heroku-logo-for-facebook.png'
+                }
+            ],
+            activities: Dashboard.getActivities(dashboardKey),
+            cards: Dashboard.getCards(dashboardKey),
+            dateTimeFormat: Common.defaultUIDateTimestampFormat,
+            openCardDetails: function (card) {
+                $scope.selectedCard = card;
+            }
+        });
     });

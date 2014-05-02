@@ -1,63 +1,81 @@
 <div ng-controller="DashboardCtrl">
 
-    <!-- TO DO -->
-    <div class="panel panel-primary">
-        <div class="panel-heading">TODO</div>
-        <div class="panel-body">
-            <div class="input-group" ng-repeat="card in cards | cardStatus:'TODO'">
-                <span class="input-group-addon">{{ card.ref }}</span>
-                <input type="text" class="form-control" value="{{ card.text }}" disabled>
-                <span class="input-group-addon">{{ card.rating }}</span>
-            </div>
-        </div>
-    </div>
+    <div class="row">
 
-    <!-- DOING -->
-    <div class="panel panel-primary">
-        <div class="panel-heading">DOING</div>
-        <div class="panel-body">
-            <div class="input-group" ng-repeat="card in cards | cardStatus:'DOING'">
-                <span class="input-group-addon">{{ card.ref }}</span>
-                <input type="text" class="form-control" value="{{ card.text }}" disabled>
-                <span class="input-group-addon">{{ card.rating }}</span>
-            </div>
-        </div>
-    </div>
+        <div class="col-lg-6">
 
-    <!-- PUSHED -->
-    <div class="panel panel-primary">
-        <div class="panel-heading">PUSHED</div>
-        <div class="panel-body">
-            <div class="input-group" ng-repeat="card in cards | cardStatus:'PUSHED'">
-                <span class="input-group-addon">{{ card.ref }}</span>
-                <input type="text" class="form-control" value="{{ card.text }}" disabled>
-                <span class="input-group-addon">{{ card.rating }}</span>
-            </div>
-        </div>
-    </div>
+            <div class="row">
 
-    <!-- BUILD -->
-    <div class="panel panel-warning">
-        <div class="panel-heading">BUILT</div>
-        <div class="panel-body">
-            <div class="input-group" ng-repeat="card in cards | cardStatus:'BUILT'">
-                <span class="input-group-addon">{{ card.ref }}</span>
-                <input type="text" class="form-control" value="{{ card.text }}" disabled>
-                <span class="input-group-addon">{{ card.rating }}</span>
-            </div>
-        </div>
-    </div>
+                <h4>{{ 'cards.list' | i18n }}</h4>
 
-    <!-- DEPLOYED -->
-    <div class="panel panel-success">
-        <div class="panel-heading">DEPLOYED</div>
-        <div class="panel-body">
-            <div class="input-group" ng-repeat="card in cards | cardStatus:'DEPLOYED'">
-                <span class="input-group-addon">{{ card.ref }}</span>
-                <input type="text" class="form-control" value="{{ card.text }}" disabled>
-                <span class="input-group-addon">{{ card.rating }}</span>
+                <div class="panel panel-{{ category.type }}" ng-repeat='category in categories'>
+
+                    <div class="panel-heading">{{ category.name }}</div>
+
+                    <div class="panel-body">
+                        <div class="input-group" ng-repeat="card in cards | cardStatus:category.name">
+                            <span class="input-group-addon">#{{ card.ref }}</span>
+                            <a class="form-control" ng-click="openCardDetails(card)" style="cursor:pointer;">
+                                {{ card.text }}
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer">
+                        <img ng-src='{{ category.logo }}' width="40px">
+                    </div>
+                </div>
+
             </div>
+
         </div>
+
+        <div class="col-lg-1">&nbsp;</div>
+
+        <div class="col-lg-5">
+
+            <div class="row" ng-if="selectedCard">
+
+                <h4>{{ 'card.details' | i18n }}</h4>
+
+                <div class="panel panel-primary">
+                    <div class="panel-heading">#{{ selectedCard.ref }}</div>
+                    <div class="panel-body">
+                        <form>
+                            <textarea disabled class="form-control">
+                                {{ selectedCard.text }}
+                            </textarea>
+                            <ul>
+                                <li ng-repeat='commit in selectedCard.commits'>{{ commit.id }}</li>
+                            </ul>
+                            <ul>
+                                <li ng-repeat='link in selectedCard.links'><a href="{{ commit.url }}">{{ link.name }}</a></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <h4>{{ 'activities' | i18n }}</h4>
+
+                <div class="panel panel-primary">
+                    <div class="panel-body">
+
+                        <ul class="list-group">
+                            <li class="list-group-item success" ng-repeat='activity in activities'>
+                                #{{ activity.card.ref }} : {{ activity.event | i18n }} @ {{ activity.timestamp | date:dateTimeFormat }}
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 
 </div>

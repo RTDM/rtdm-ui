@@ -25,7 +25,7 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="container">
+    <div style="padding: 20px; margin:20px">
         <div class="header">
             <ul class="nav nav-pills pull-right">
                 <li class="active"><a ng-href="#">Home</a></li>
@@ -65,6 +65,7 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
     <!-- endbower -->
     <script src="scripts/stomp.js"></script>
     <!-- endbuild -->
@@ -73,13 +74,16 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/i18n/fr_fr.js"></script>
 
     <!-- Services -->
-    <script src="scripts/services/Dashboard.bo.js"></script>
+    <script src="scripts/services/Common.js"></script>
     <script src="scripts/services/StompClient.js"></script>
+    <script src="scripts/services/Dashboard.bo.js"></script>
 
     <!-- Filters -->
     <script src="scripts/filters/CardStatusFilter.js"></script>
+    <script src="scripts/filters/i18nFilter.js"></script>
 
     <!-- Controllers -->
     <script src="scripts/controllers/MainCtrl.js"></script>
