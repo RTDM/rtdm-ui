@@ -2,7 +2,10 @@
 
 angular.module('rtdm', ['rtdm.ui', 'rtdm.services']);
 
-angular.module('rtdm.services', ['ngResource']);
+angular.module('rtdm.services', ['ngResource'])
+    .run(function (StompClient) {
+        StompClient.connect();
+    });
 
 angular.module('rtdm.ui', [
         'ngCookies',
@@ -20,8 +23,5 @@ angular.module('rtdm.ui', [
             .otherwise({
                 redirectTo: '/'
             });
-    })
-    .run(function (StompClient) {
-        StompClient.connect();
     });
 
