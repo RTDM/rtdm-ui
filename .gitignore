@@ -1,4 +1,7 @@
+.idea
 rtdm-ui.iml
 dist
 node_modules
 app/bower_components
+.sass-cache
+.tmp
