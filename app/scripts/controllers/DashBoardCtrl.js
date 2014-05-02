@@ -11,7 +11,17 @@ angular.module('rtdm.ui')
             callback: function (data) {
                 if (data.type === 'activity') {
                     $scope.activities.push(data.activity);
-                } else {
+                }
+                // For the moment whole cards list is updated...
+                if (data.type === 'card.CREATED') {
+                    $scope.addCard(data.card);
+                }
+                if (data.type === 'card.UPDATED') {
+                    if ($scope.cards[data.card._id]) {
+                        $scope.cards[data.card._id] = data.card;
+                    }
+                }
+                else {
                     console.log('unhandled event type: ', data.type, data);
                 }
             }
@@ -49,11 +59,20 @@ angular.module('rtdm.ui')
                     logo: 'https://pbs.twimg.com/profile_images/2182907658/heroku-logo-for-facebook.png'
                 }
             ],
+            cards: {},
+            addCard: function (card) {
+                $scope.cards[card._id] = card;
+            },
             activities: Dashboard.getActivities(dashboardKey),
-            cards: Dashboard.getCards(dashboardKey),
             dateTimeFormat: Common.defaultUIDateTimestampFormat,
             openCardDetails: function (card) {
                 $scope.selectedCard = card;
             }
+        });
+
+        Dashboard.getCards(dashboardKey, function (cards) {
+            _.each(cards, function (card) {
+                $scope.addCard(card);
+            });
         });
     });

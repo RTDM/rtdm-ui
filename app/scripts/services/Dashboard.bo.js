@@ -6,11 +6,11 @@ angular.module('rtdm.services')
         var Dashboard = $resource('/api/dashboard/:key/:things');
 
         return angular.extend({
-            getCards: function (dashboardKey) {
+            getCards: function (dashboardKey, handler) {
                 return Dashboard.query({
                     key: dashboardKey,
                     things: 'cards'
-                });
+                }, handler);
             },
             getActivities: function (dashboardKey) {
                 return Dashboard.query({

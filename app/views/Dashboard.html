@@ -13,7 +13,7 @@
                     <div class="panel-heading">{{ category.name }}</div>
 
                     <div class="panel-body">
-                        <div class="input-group" ng-repeat="card in cards | cardStatus:category.name">
+                        <div class="input-group" ng-repeat="(key, card) in cards | cardStatus:category.name">
                             <span class="input-group-addon">#{{ card.ref }}</span>
                             <a class="form-control" ng-click="openCardDetails(card)" style="cursor:pointer;">
                                 {{ card.text }}
