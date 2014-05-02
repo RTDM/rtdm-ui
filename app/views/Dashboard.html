@@ -42,12 +42,15 @@
                     <div class="panel-heading">#{{ selectedCard.ref }}</div>
                     <div class="panel-body">
                         <form>
+                            <label>{{ 'text' | i18n }}</label>
                             <textarea disabled class="form-control">
                                 {{ selectedCard.text }}
                             </textarea>
+                            <label>{{ 'commits.list' | i18n }}</label>
                             <ul>
                                 <li ng-repeat='commit in selectedCard.commits'>{{ commit.id }}</li>
                             </ul>
+                            <label>{{ 'links.list' | i18n }}</label>
                             <ul>
                                 <li ng-repeat='link in selectedCard.links'><a href="{{ commit.url }}">{{ link.name }}</a></li>
                             </ul>
