@@ -15,7 +15,7 @@ angular.module('rtdm.ui', [
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html'
+                templateUrl: 'views/Main.html'
             })
             .when('/dashboard/:dashboardKey', {
                 templateUrl: 'views/Dashboard.html'
