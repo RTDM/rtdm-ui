@@ -12,7 +12,6 @@ angular.module('rtdm.ui')
                 if (data.type === 'activity') {
                     $scope.activities.push(data.activity);
                 }
-                // For the moment whole cards list is updated...
                 if (data.type === 'card.CREATED') {
                     $scope.addCard(data.card);
                 }
