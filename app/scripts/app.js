@@ -20,5 +20,8 @@ angular.module('rtdm.ui', [
             .otherwise({
                 redirectTo: '/'
             });
+    })
+    .run(function (StompClient) {
+        StompClient.connect();
     });
 
