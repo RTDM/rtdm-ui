@@ -15,7 +15,7 @@ angular.module('rtdm.ui').constant('LocalDictionary', {
     'card.details': 'Détails',
     'text': 'Description',
     'commits.list': 'Commits associés',
-    'links.list': 'Liens associés',
+    'builds.list': 'Builds associés',
 
     // Activities
     'CARD_CREATED': 'Carte créée',

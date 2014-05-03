@@ -48,11 +48,15 @@
                             </textarea>
                             <label>{{ 'commits.list' | i18n }}</label>
                             <ul>
-                                <li ng-repeat='commit in selectedCard.commits'>{{ commit.id }}</li>
+                                <li ng-repeat="link in selectedCard.links | cardLinks:'GitHub'">
+                                    <a href="{{ link.url }}">{{ link.name }}</a>
+                                </li>
                             </ul>
-                            <label>{{ 'links.list' | i18n }}</label>
+                            <label>{{ 'builds.list' | i18n }}</label>
                             <ul>
-                                <li ng-repeat='link in selectedCard.links'><a href="{{ link.url }}">{{ link.name }} ({{ link.category }})</a></li>
+                                <li ng-repeat="link in selectedCard.links | cardLinks:'Build'">
+                                    <a href="{{ link.url }}">{{ link.name }}</a>
+                                </li>
                             </ul>
                         </form>
                     </div>
