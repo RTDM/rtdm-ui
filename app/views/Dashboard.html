@@ -49,13 +49,13 @@
                             <label>{{ 'commits.list' | i18n }}</label>
                             <ul>
                                 <li ng-repeat="link in selectedCard.links | cardLinks:'GitHub'">
-                                    <a href="{{ link.url }}">{{ link.name }}</a>
+                                    <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
                                 </li>
                             </ul>
                             <label>{{ 'builds.list' | i18n }}</label>
                             <ul>
                                 <li ng-repeat="link in selectedCard.links | cardLinks:'Build'">
-                                    <a href="{{ link.url }}">{{ link.name }}</a>
+                                    <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
                                 </li>
                             </ul>
                         </form>
