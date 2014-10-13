@@ -45,17 +45,17 @@ angular.module('rtdm.ui')
                 {
                     name: 'PUSHED',
                     type: 'info',
-                    logo: 'http://aglick.com/snIcons/GithubLogo.png'
+                    logo: 'images/github.png'
                 },
                 {
                     name: 'BUILT',
                     type: 'warning',
-                    logo: 'http://www.dailyhostnews.com/wp-content/uploads/2013/03/CloudBees_logo_600x450.jpeg'
+                    logo: 'images/codeship.png'
                 },
                 {
                     name: 'DEPLOYED',
                     type: 'success',
-                    logo: 'https://pbs.twimg.com/profile_images/2182907658/heroku-logo-for-facebook.png'
+                    logo: 'images/heroku.png'
                 }
             ],
             cards: {},
